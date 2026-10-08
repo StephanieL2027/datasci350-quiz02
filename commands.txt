@@ -46,4 +46,7 @@ git commit -m "Add site pages and freeze"
 
 quarto publish gh-pages
 
+git add commands.txt
+git commit -m "Add command log"
+
 
