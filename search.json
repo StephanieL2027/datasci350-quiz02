@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "runtime-rating.html",
+    "href": "runtime-rating.html",
+    "title": "Runtime and Ratings",
+    "section": "",
+    "text": "Figure 1 shows each film’s runtime and rating.\n\nplt.scatter(films[\"runtime_min\"], films[\"imdb_rating\"])\nplt.xlabel(\"Runtime (minutes)\")\nplt.ylabel(\"IMDb rating\")\nplt.show()\n\n\n\n\nFigure 1: Runtime and Rating\n\n\n\n\n\nfilms[\"decade\"] = films[\"year\"] // 10 * 10\nfilms.groupby(\"decade\")[\"imdb_rating\"].mean().round(2)\n\ndecade\n1980    8.01\n1990    7.70\n2000    7.94\n2010    7.83\n2020    7.44\nName: imdb_rating, dtype: float64"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Box Office Numbers",
+    "section": "",
+    "text": "Budget and Revenue\nRuntime and Ratings\nThe Bond Films\n\nAI usage: I used Claude to help explain the instructions for some tasks."
+  },
+  {
+    "objectID": "bond.html",
+    "href": "bond.html",
+    "title": "The Bond Films",
+    "section": "",
+    "text": "The Bond films in this dataset run from 1995 to 2021.\n\nplt.plot(bond[\"year\"], bond[\"revenue_musd\"])\nplt.xlabel(\"Year\")\nplt.ylabel(\"Revenue (million USD)\")\nplt.show()"
+  },
+  {
+    "objectID": "budget-revenue.html",
+    "href": "budget-revenue.html",
+    "title": "Budget and Revenue",
+    "section": "",
+    "text": "Figure 1 shows each film’s production budget and its revenue.\n\nplt.scatter(films[\"budget_musd\"], films[\"revenue_musd\"])\nplt.xlabel(\"Budget (million USD)\")\nplt.ylabel(\"Revenue (million USD)\")\nplt.show()\n\n\n\n\nFigure 1: Budget and revenue, in millions US dollars"
+  }
+]
