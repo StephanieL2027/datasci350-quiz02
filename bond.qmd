@@ -10,7 +10,11 @@ films = pd.read_csv("films.csv")
 bond = films[films["franchise"] == "James Bond"]
 ```
 
-The Bond films in this dataset is from `{python} int(bond["year"].min())` to `{python} int(bond["year"].max())`.
+```{python}
+#| echo: false
+#| output: asis
+print(f"The Bond films in this dataset run from {int(bond['year'].min())} to {int(bond['year'].max())}.")
+```
 
 ```{python}
 #| echo: true

@@ -39,4 +39,9 @@ touch runtime-rating.qmd
 touch bond.qmd
 ---title: "The Bond Films"---```{python}import pandas as pdimport matplotlib.pyplot as pltfilms = pd.read_csv("films.csv")bond = films[films["franchise"] == "James Bond"]```The Bond films in this dataset is from `{python} int(bond["year"].min())` to `{python} int(bond["year"].max())`.```{python}#| echo: trueplt.plot(bond["year"], bond["revenue_musd"])plt.xlabel("Year")plt.ylabel("Revenue (million USD)")plt.show()```
 
+quarto render
+ls
+git add .
+git commit -m "Add site pages and freeze"
+
 
