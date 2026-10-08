@@ -1,0 +1,11 @@
+{
+  "hash": "5cefbc03efbd7490cfa98671f1e472d7",
+  "result": {
+    "markdown": "---\ntitle: \"Budget and Revenue\"\n---\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nfilms = pd.read_csv(\"films.csv\")\n```\n:::\n\n\n@fig-budget-revenue shows each film's production budget and its revenue.\n\n::: {.cell execution_count=2}\n``` {.python .cell-code}\nplt.scatter(films[\"budget_musd\"], films[\"revenue_musd\"])\nplt.xlabel(\"Budget (million USD)\")\nplt.ylabel(\"Revenue (million USD)\")\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![Budget and revenue, in millions US dollars](budget-revenue_files/figure-html/fig-budget-revenue-output-1.png){#fig-budget-revenue width=602 height=429}\n:::\n:::\n\n\n",
+    "supporting": [
+      "budget-revenue_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

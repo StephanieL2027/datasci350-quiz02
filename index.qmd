@@ -1,0 +1,11 @@
+---
+title: "Box Office Numbers"
+---
+
+This website will explore 104 well-known films that was released between 1980 and 2025. The dataset includes budgets, worldwide revenues, runtimes, and ratings. 
+
+- [Budget and Revenue](budget-revenue.qmd)
+- [Runtime and Ratings](runtime-rating.qmd)
+- [The Bond Films](bond.qmd)
+
+AI usage: I used Claude to help explain the instructions for some tasks.

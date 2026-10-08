@@ -1,0 +1,22 @@
+---
+title: "Budget and Revenue"
+---
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+films = pd.read_csv("films.csv")
+```
+
+@fig-budget-revenue shows each film's production budget and its revenue.
+
+```{python}
+#| echo: true
+#| label: fig-budget-revenue
+#| fig-cap: "Budget and revenue, in millions US dollars"
+plt.scatter(films["budget_musd"], films["revenue_musd"])
+plt.xlabel("Budget (million USD)")
+plt.ylabel("Revenue (million USD)")
+plt.show()
+```

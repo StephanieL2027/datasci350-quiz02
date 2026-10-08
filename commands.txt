@@ -1,0 +1,42 @@
+cd Desktop
+git clone https://github.com/StephanieL2027/datasci350-quiz02.git
+cd datasci350-quiz02
+touch commands.txt
+open commands.txt
+ls
+
+quarto create-project . --type website
+
+echo "/_site/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+git add .gitignore
+git commit -m "Add gitignore"
+
+rm about.qmd
+
+left:
+      - href: index.qmd
+        text: Home
+      - href: budget-revenue.qmd
+        text: Budget and Revenue
+      - href: runtime-rating.qmd
+        text: Runtime and Ratings
+      - href: bond.qmd
+        text: The Bond Films
+
+theme: darkly
+execute:
+  freeze: auto
+
+---title: "Box Office Numbers"---This website will explore 104 well-known films that was released between 1980 and 2025. The dataset includes budgets, worldwide revenues, runtimes, and ratings. - [Budget and Revenue](budget-revenue.qmd)- [Runtime and Ratings](runtime-rating.qmd)- [The Bond Films](bond.qmd)AI usage: I used Claude to help explain the instructions for some tasks.
+
+touch budget-revenue.qmd
+---title: "Budget and Revenue"---```{python}import pandas as pdimport matplotlib.pyplot as pltfilms = pd.read_csv("films.csv")```@fig-budget-revenue shows each film's production budget and its revenue.```{python}#| echo: true#| label: fig-budget-revenue#| fig-cap: "Budget and revenue, in millions US dollars"plt.scatter(films["budget_musd"], films["revenue_musd"])plt.xlabel("Budget (million USD)")plt.ylabel("Revenue (million USD)")plt.show()```
+
+touch runtime-rating.qmd
+---title: "Runtime and Ratings"---```{python}import pandas as pdimport matplotlib.pyplot as pltfilms = pd.read_csv("films.csv")```@fig-runtime-rating shows each film's runtime and rating. ```{python}#| echo: true#| label: fig-runtime-rating#| fig-cap: "Runtime and Rating"plt.scatter(films["runtime_min"], films["imdb_rating"])plt.xlabel("Runtime (minutes)")plt.ylabel("IMDb rating")plt.show()``````{python}#| echo: truefilms["decade"] = films["year"] // 10 * 10films.groupby("decade")["imdb_rating"].mean().round(2)```
+
+touch bond.qmd
+---title: "The Bond Films"---```{python}import pandas as pdimport matplotlib.pyplot as pltfilms = pd.read_csv("films.csv")bond = films[films["franchise"] == "James Bond"]```The Bond films in this dataset is from `{python} int(bond["year"].min())` to `{python} int(bond["year"].max())`.```{python}#| echo: trueplt.plot(bond["year"], bond["revenue_musd"])plt.xlabel("Year")plt.ylabel("Revenue (million USD)")plt.show()```
+
+
