@@ -37,11 +37,13 @@ touch runtime-rating.qmd
 ---title: "Runtime and Ratings"---```{python}import pandas as pdimport matplotlib.pyplot as pltfilms = pd.read_csv("films.csv")```@fig-runtime-rating shows each film's runtime and rating. ```{python}#| echo: true#| label: fig-runtime-rating#| fig-cap: "Runtime and Rating"plt.scatter(films["runtime_min"], films["imdb_rating"])plt.xlabel("Runtime (minutes)")plt.ylabel("IMDb rating")plt.show()``````{python}#| echo: truefilms["decade"] = films["year"] // 10 * 10films.groupby("decade")["imdb_rating"].mean().round(2)```
 
 touch bond.qmd
----title: "The Bond Films"---```{python}import pandas as pdimport matplotlib.pyplot as pltfilms = pd.read_csv("films.csv")bond = films[films["franchise"] == "James Bond"]```The Bond films in this dataset is from `{python} int(bond["year"].min())` to `{python} int(bond["year"].max())`.```{python}#| echo: trueplt.plot(bond["year"], bond["revenue_musd"])plt.xlabel("Year")plt.ylabel("Revenue (million USD)")plt.show()```
+---title: "The Bond Films"---```{python}import pandas as pdimport matplotlib.pyplot as pltfilms = pd.read_csv("films.csv")bond = films[films["franchise"] == "James Bond"]``````{python}#| echo: false#| output: asisprint(f"The Bond films in this dataset run from {int(bond['year'].min())} to {int(bond['year'].max())}.")``````{python}#| echo: trueplt.plot(bond["year"], bond["revenue_musd"])plt.xlabel("Year")plt.ylabel("Revenue (million USD)")plt.show()```
 
 quarto render
 ls
 git add .
 git commit -m "Add site pages and freeze"
+
+quarto publish gh-pages
 
 
